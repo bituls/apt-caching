@@ -1,0 +1,12 @@
+---
+# tasks file for bituls.apt-caching
+
+- name: Create apt config directory
+  file:
+    path: /etc/apt/apt.conf.d
+    state: directory
+
+- name: Set up apt caching
+  template:
+    src: 01proxy.j2
+    dest: /etc/apt/apt.conf.d/01proxy
