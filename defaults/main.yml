@@ -1,0 +1,4 @@
+---
+# defaults file for bituls.apt-caching
+
+apt_cacher_url: http://172.17.0.2:3142
