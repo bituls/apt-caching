@@ -8,6 +8,8 @@ Requirements
 
 You should have a running apt-cacher-ng server. See https://www.unix-ag.uni-kl.de/~bloch/acng/
 
+https://github.com/bituls/ansible-container-caching-proxy can run it in a docker container
+
 Role Variables
 --------------
 
@@ -15,7 +17,7 @@ A description of the settable variables for this role should go here, including 
 
 apt_cacher_host: Host of the apt caching server running apt-cacher-ng. E.g 127.0.0.1 (default)
 apt_cacher_port: Port to the apt caching server. Default is 3142
-enable_caching: Whether this role should enable caching for apt. Default is no. You must explicitly enable this which is useful for automated setups
+apt_caching: Whether this role should enable caching for apt. Default is no. You must explicitly enable this which is useful for automated setups
 
 Dependencies
 ------------
@@ -29,7 +31,7 @@ Including an example of how to use your role (for instance, with variables passe
 
     - hosts: servers
       roles:
-         - { role: bituls.apt-caching, enable_caching: yes }
+         - { role: bituls.apt-caching, apt_caching: yes }
 
 License
 -------
