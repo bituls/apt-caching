@@ -1,26 +1,28 @@
 Role Name
 =========
 
-Sets up apt so that it uses a caching proxy when installing packages. This just configures the apt tool so a server must be available and running the apt-cacher-ng tool. 
+Sets up apt so that it uses a caching proxy when installing packages. This just configures the apt tool so a server must be available and running the apt-cacher-ng tool.
 
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+You should have a running apt-cacher-ng server. See https://www.unix-ag.uni-kl.de/~bloch/acng/
 
-None
+https://github.com/bituls/ansible-container-caching-proxy can run it in a docker container
 
 Role Variables
 --------------
 
 A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
 
-apt_cacher_url: Url to the apt caching server running apt-cacher-ng. E.g http://172.17.0.3:3142
+apt_cacher_host: Host of the apt caching server running apt-cacher-ng. E.g 127.0.0.1 (default)
+apt_cacher_port: Port to the apt caching server. Default is 3142
+apt_caching: Whether this role should enable caching for apt. Default is no. You must explicitly enable this which is useful for automated setups
 
 Dependencies
 ------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+None.
 
 Example Playbook
 ----------------
@@ -29,7 +31,7 @@ Including an example of how to use your role (for instance, with variables passe
 
     - hosts: servers
       roles:
-         - { role: username.rolename, x: 42 }
+         - { role: bituls.apt-caching, apt_caching: yes }
 
 License
 -------
