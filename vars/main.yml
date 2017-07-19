@@ -1,2 +1,4 @@
 ---
 # vars file for bituls.apt-caching
+
+apt_cacher_url: "http://{{ apt_cacher_host }}:{{ apt_cacher_port }}"
