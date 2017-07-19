@@ -1,4 +1,6 @@
 ---
 # defaults file for bituls.apt-caching
 
-apt_cacher_url: http://172.17.0.2:3142
+apt_cacher_host: 127.0.0.1
+apt_cacher_port: 3142
+apt_caching: no
